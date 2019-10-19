@@ -13,11 +13,6 @@ import java.util.List;
 
 public class ReminderVisitor extends NodeVisitor{
 
-    private Reminder mReminder;
-
-    public ReminderVisitor() {
-    }
-
     @Override
     public void visitFacade(Facade facade) {
         ClassCourseList classCourseList = new ClassCourseList(facade.courseList);
@@ -27,6 +22,7 @@ public class ReminderVisitor extends NodeVisitor{
             int index = iterator.getCurrentIndex();
             Course course = (Course) iterator.next();
             System.out.println(course.getCourseName());
+            System.out.println();
         }
     }
 
@@ -37,6 +33,7 @@ public class ReminderVisitor extends NodeVisitor{
         Duration duration = Duration.between(now, dueDate);
         Long hours = Math.abs(duration.toHours());
         System.out.println(hours + " hours left before assignment is due");
+        System.out.println();
 
     }
 
@@ -51,5 +48,6 @@ public class ReminderVisitor extends NodeVisitor{
         } else {
             System.out.println("No Assignment Available");
         }
+        System.out.println();
     }
 }
